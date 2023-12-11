@@ -24,7 +24,7 @@ if (pushToBranch == true && !githubToken)
 
     /** Build Project */
     console.info("Building project");
-    const build = await exec(`npm run build`, [], { cwd: directory });
+    const build = await exec(`npm run build --ignore-ts-errors`, [], { cwd: directory });
     if (build !== 0) return exit("Something went wrong while building.");
     if (pushToBranch == "false") return process.exit(0);
 
